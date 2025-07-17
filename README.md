@@ -20,7 +20,10 @@ This is a simple currency exchange application built with **React** using a free
 ## 📦 Installation and Starting
 
 Clone the repository:
-git clone https://github.com/baristacirlioglu/currency-exchange-app.git
-cd currency_app
-npm run dev
-open http://localhost:5173
+-git clone https://github.com/baristacirlioglu/currency-exchange-app.git
+
+-cd currency_app
+
+-npm run dev
+
+-open http://localhost:5173
