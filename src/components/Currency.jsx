@@ -32,9 +32,17 @@ function Currency() {
         
         <div>
             <input
-            value = {amount>0 ? amount : 0}
-            onChange={(e) => setAmount(e.target.value)}
-            type="number" className='amount' />
+                value={amount > 0 ? amount : 0}
+                onChange={(e) => setAmount(e.target.value)}
+                onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    exchange();
+                }
+                }}
+                type="number"
+                className='amount'
+            />
+
         <select onChange={(e) => setFromCurrency(e.target.value)} className='from-currency-option'>
             <option>USD</option>
             <option>EUR</option>
