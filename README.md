@@ -22,7 +22,7 @@ This is a simple currency exchange application built with **React** using a free
 Clone the repository:
 -git clone https://github.com/baristacirlioglu/currency-exchange-app.git
 
--cd currency_app
+-cd currency-exchange-app
 
 -npm install
 
