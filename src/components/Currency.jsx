@@ -25,53 +25,59 @@ function Currency() {
   
   
     return (
-    <div className='currency-div'>
-        <div style={{marginTop:'-30px'}}>
-            <h3>DÖVİZ KURU UYGULAMASI</h3>
-        </div>
-        
-        <div>
-            <input
-                value={amount > 0 ? amount : 0}
-                onChange={(e) => setAmount(e.target.value)}
-                onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    exchange();
-                }
-                }}
-                type="number"
-                className='amount'
-            />
+  <div className="flex flex-col items-center justify-center mt-[50px] w-[450px] h-[220px] border-[3px] border-black bg-[#00ffff] rounded-[20px]">
+    <h3 className="mb-4 font-semibold">DÖVİZ KURU UYGULAMASI</h3>
 
-        <select onChange={(e) => setFromCurrency(e.target.value)} className='from-currency-option'>
-            <option>USD</option>
-            <option>EUR</option>
-            <option>TRY</option>
-        </select>
+    {/* Input ve seçimler yatay hizalı */}
+    <div className="flex items-center space-x-2">
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(Number(e.target.value))}
+        onKeyDown={(e) => { if (e.key === 'Enter') exchange(); }}
+        className="w-[80px] h-[30px] px-1 bg-white border border-black rounded"
+      />
 
-        <FaRegArrowAltCircleRight style={{fontSize: '30px'}} />
+      <select
+        value={fromCurrency}
+        onChange={(e) => setFromCurrency(e.target.value)}
+        className="w-[70px] h-[30px] bg-white border border-black rounded"
+      >
+        <option>USD</option>
+        <option>EUR</option>
+        <option>TRY</option>
+      </select>
 
-        <select onChange={(e) => setToCurrency(e.target.value)} className='to-currency-option'>
-            <option>TRY</option>
-            <option>USD</option>
-            <option>EUR</option>
-        </select>
+      <FaRegArrowAltCircleRight className="text-2xl" />
 
-        <input
-        value = {result}
-        onChange={(e) => setResult(e.target.value)}
-        type="number" className='result' />
-        </div>
+      <select
+        value={toCurrency}
+        onChange={(e) => setToCurrency(e.target.value)}
+        className="w-[70px] h-[30px] bg-white border border-black rounded"
+      >
+        <option>TRY</option>
+        <option>USD</option>
+        <option>EUR</option>
+      </select>
 
-        <div>
-            <button 
-            onClick={exchange}
-            style={{marginTop: '20px', width: '100px', height: '30px', backgroundColor: 'pink', borderRadius:'5px', cursor:'pointer'}}>ÇEVİR</button>
-        </div>
-        
-        
+      <input
+        type="number"
+        value={result}
+        readOnly
+        className="w-[80px] h-[30px] px-1 bg-white border border-black rounded"
+      />
     </div>
-  )
+
+    {/* Buton */}
+    <button
+      onClick={exchange}
+      className="mt-4 w-[100px] h-[30px] bg-orange-400 hover:bg-orange-600 text-black rounded font-semibold"
+    >
+      ÇEVİR
+    </button>
+  </div>
+);
+
 }
 
 export default Currency;
