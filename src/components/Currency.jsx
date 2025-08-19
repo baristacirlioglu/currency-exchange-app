@@ -12,6 +12,7 @@ function Currency() {
     const [fromCurrency , setFromCurrency] = useState('USD');
     const [toCurrency, setToCurrency] = useState('TRY');
     const [result, setResult] = useState(0);
+    const currencies = ['USD', 'EUR', 'TRY'];
   
     const exchange = async () => {
         if (amount<0) {
@@ -39,26 +40,30 @@ function Currency() {
       />
 
       <select
-        value={fromCurrency}
-        onChange={(e) => setFromCurrency(e.target.value)}
-        className="w-[70px] h-[30px] bg-white border border-black rounded"
-      >
-        <option>USD</option> 
-        <option>EUR</option>
-        <option>TRY</option>
-      </select>
+  value={fromCurrency}
+  onChange={(e) => setFromCurrency(e.target.value)}
+  className="w-[70px] h-[30px] bg-white border border-black rounded"
+>
+  {currencies
+    .filter((c) => c !== toCurrency) // Sağda seçilen değer solda gözükmesin
+    .map((c) => (
+      <option key={c}>{c}</option>
+    ))}
+</select>
 
-      <FaRegArrowAltCircleRight className="text-2xl" />
+<FaRegArrowAltCircleRight className="text-2xl" />
 
-      <select
-        value={toCurrency}
-        onChange={(e) => setToCurrency(e.target.value)}
-        className="w-[70px] h-[30px] bg-white border border-black rounded"
-      >
-        <option>TRY</option>
-        <option>USD</option>
-        <option>EUR</option>
-      </select>
+<select
+  value={toCurrency}
+  onChange={(e) => setToCurrency(e.target.value)}
+  className="w-[70px] h-[30px] bg-white border border-black rounded"
+>
+  {currencies
+    .filter((c) => c !== fromCurrency) // Solda seçilen değer sağda gözükmesin
+    .map((c) => (
+      <option key={c}>{c}</option>
+    ))}
+</select>
 
       <input
         type="number"
