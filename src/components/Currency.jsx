@@ -15,7 +15,7 @@ function Currency() {
   
     const exchange = async () => {
         if (amount<0) {
-            alert("0'dan kucuk girilemez!");
+            alert("0'dan kucuk bir sayi girilemez!");
             return;
         }
         const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&base_currency=${fromCurrency}`);
@@ -43,7 +43,7 @@ function Currency() {
         onChange={(e) => setFromCurrency(e.target.value)}
         className="w-[70px] h-[30px] bg-white border border-black rounded"
       >
-        <option>USD</option>
+        <option>USD</option> 
         <option>EUR</option>
         <option>TRY</option>
       </select>
